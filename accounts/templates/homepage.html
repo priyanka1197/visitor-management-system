@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %}<title>Raspi-Visitors</title>{% endblock %}
+{% block nav %} 
+<div class="form-inline my-2 my-lg-0 ml-auto">
+        {% if user.is_authenticated %}
+        <h6 class="text-dark mx-3 my-auto">Hello, Admin</h6>
+        <a class="btn btn-primary mx-2" href="/dashboard" role="button">Dashboard</a>
+        {% else %}
+	<a class="btn btn-success mx-2" href="/manager_login" role="button">Manager Login</a>
+        <a class="btn btn-success mx-2" href="admin_login/" role="button">Admin Login</a>
+        {% endif %}
+        
+  </div>
+{% endblock %}
+
+{% block header %}
+<header class="masthead text-white text-center " style="background:url('{% static '/img/bg-2.jpg' %}')no-repeat center center;background-size:cover;">
+    <div class="overlay"></div>
+    <div class="container">
+    <div class="row">
+        <div class="col-xl-6 mx-auto">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Want to Visit Raspi Invent?</h5>
+                        <p class="card-text text-dark">Look for the Concern Host.</p>
+                        <a href="/doctors" class="btn btn-primary">Find your manager.</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+</header>
+{% endblock %}
+
+{% block body %}
+<section class="features-icons bg-light text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="mx-auto features-icons-item">
+                        <div class="d-flex features-icons-icon"><i class="icon-screen-desktop m-auto text-primary" ></i></div>
+                        <h3>FIND YOUR MANAGER</h3>
+			<p class="lead mb-0">Meet your concern manager.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mx-auto features-icons-item ">
+                        <div class="d-flex features-icons-icon"><i class="icon-layers m-auto text-primary" ></i></div>
+                        <h3>VISIT AND MEET</h3>
+                        <p class="lead mb-0">Visit and meet with your Manager.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mx-auto features-icons-item">
+                        <div class="d-flex features-icons-icon"><i class="icon-check m-auto text-primary" ></i></div>
+                        <h3>DISCUSS IDEAS</h3>
+                        <p class="lead mb-0">Discuss ideas with Manager.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}
+<footer class="footer bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 h-100 text-center text-lg-left">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item text-light">Contact</li>
+                        <li class="list-inline-item text-light"><span>:</span></li>
+                        <li class="list-inline-item text-primary">sales@raspiinvent.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row footer-bottom d-flex justify-content-between mt-2">
+                    <p class="col-lg-8 col-sm-12 text-muted small">
+                    Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Priyanka Choudhari</a></p>
+        </div>
+        </div>
+    </footer>
+{% endblock %}
