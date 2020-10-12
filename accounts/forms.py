@@ -27,6 +27,7 @@ choice = [
     ('yes', 'Yes'),
     ('no', 'No')
     ]
+
 class Visitorform(forms.ModelForm):
     error_css_class = 'error'
     name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Name'}), required=True, max_length=50)
@@ -37,17 +38,25 @@ class Visitorform(forms.ModelForm):
     material = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Material Carried'}), required=True)
     time = forms.TimeField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Time Preferred'}), required=True)
     adharno = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control','placeholder':'Ardharno Number'}), required=True)
-    pancardno = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control','placeholder':'Pancard Number'}), required=True)
-    licenseno = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control','placeholder':'License Number'}), required=True)
-    image = forms.FileField(required = False)
-    adharcard = forms.FileField(required = False)
-    pancard = forms.FileField(required = False)
-    license = forms.FileField(required = False)
+    pancardno = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Pancard Number'}), required=True)
+    licenseno = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'License Number'}), required=True)
+    image = forms.FileField(required = True)
+    adharcard = forms.FileField(required =True)
+    pancard = forms.FileField(required = True)
+    license = forms.FileField(required = True)
     containment = forms.ChoiceField(choices=choice, required=True)
     symptoms = forms.ChoiceField(choices=choice, required=True)
     history = forms.ChoiceField(choices=choice, required=True)
     family =  forms.ChoiceField(choices=choice, required=True)   
     class Meta():
         model = guest
-        fields = ['name','email','phoneno','company','purpose','time','adharno','pancardno','licenseno','image','adharcard','pancard','license','containment','symptoms','family']
+        fields = ['name','email','phoneno','company','purpose','material','time','adharno','pancardno','licenseno','image','adharcard','pancard','license','containment','symptoms','history','family']
+
+
+class time(forms.Form):
+	timeassigned = forms.CharField(required=True)
+	mid = forms.CharField(required=True)
+
+
+
 

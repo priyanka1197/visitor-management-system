@@ -10,5 +10,6 @@ urlpatterns = [
     path('edit_profile/', views.edit_profile, name = 'save_profile'),
     path('edit_delete/',views.edit_delete, name='edit_profile'),
     path('verification/', views.verify, name='verification'),
-    path('checkout/', views.checkout, name='checkout')
+    path('checkout/', views.checkout, name='checkout'),
+    path('guesthistory/', views.guestlist, name='guestlist'),
 ]

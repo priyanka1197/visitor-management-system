@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static from staticfiles %}
+{% load static %}
 {% block title %}
 <meta http-equiv="refresh" content="20">
 <title>Dashboard</title>
@@ -9,6 +9,7 @@
         {% if user.is_authenticated %}
         <a class="btn btn-dark mx-2" data-toggle='modal', data-target='#profilemodal' type="button" href="/dashboard" role="button">Manager</a>
         <a class="btn btn-dark mx-2" data-toggle='modal', data-target='#meetingmodal' type="button" href="/dashboard" role="button">Meeting History</a>
+         <a class="btn btn-dark mx-2" href="/dashboard/guesthistory" role="button">Guest History</a>
         <a class="btn btn-danger mx-2" data-toggle='modal', data-target='#logoutmodal' type="button" href="/logout" role="button">Logout</a>
         {% else %}
         <a class="btn btn-success mx-2" href="/admin_login" role="button">Admin Login</a>

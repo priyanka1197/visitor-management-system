@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static from staticfiles %}
+{% load static %}
 {% block title%}<title>Meeting Form</title>{% endblock %}
 {% block nav %}
 <div class="form-inline my-2 my-lg-0 ml-auto">
@@ -28,6 +28,7 @@
               style="color: #757575;"
               action="/save_guest/"
               method="POST"
+              enctype="multipart/form-data"
             >
               {% csrf_token %}
 
@@ -65,46 +66,46 @@
               <div class="md-form my-2">
                 {{ form.licenseno}}
               </div>    
-              <div class="row mt-3">
+              <div class="row mt-2">
                         <label class="ml-4" style="display: inline-block;">Iamge:</label>
                         <div class="md-form ml-2" style="display:inline-block;">
                                 {{ form.image}}    
               </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-2">
                         <label class="ml-4" style="display: inline-block;">Adharcard:</label>
                         <div class="md-form ml-2" style="display:inline-block;">
                                 {{ form.adharcard}}    
               </div>
             </div>
-              <div class="row mt-3">
+              <div class="row mt-2">
                         <label class="ml-4" style="display: inline-block;">Pancard:</label>
                         <div class="md-form ml-2" style="display:inline-block;">
                                 {{ form.pancard}}    
               </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-2">
                         <label class="ml-4" style="display: inline-block;">License:</label>
                         <div class="md-form ml-2" style="display:inline-block;">
                                 {{ form.license}}    
               </div>
             </div>
-            <div class="fieldWrapper">
+            <div class="row mt-2">
                    <label for="id_category">Are you from Containment zone?</label>
                  {{ form.containment}}
            </div>
-              <div class="fieldWrapper",align='right'>
-                  <label for="id_category">Do you have symptoms like fever, cold?</label>
+              <div class="row mt-2">
+                  <label for="id_symptoms">Do you have symptoms like fever, cold?</label>
                 {{ form.symptoms}}
             </div>
  
-             <div class="fieldWrapper">
-                  <label for="id_category">Have you travelled outside the city in 15 days?</label>
+             <div class="row mt-2">
+                  <label for="id_history">Have you travelled outside the city in 15 days?</label>
                 {{ form.history}}
             </div>
  
-             <div class="fieldWrapper">
-                  <label for="id_category">Is there someone in your surrounding infected?</label>
+             <div class="row mt-2">
+                  <label for="id_family">Is there someone in your surrounding infected?</label>
                 {{ form.family}}
             </div>
             <button

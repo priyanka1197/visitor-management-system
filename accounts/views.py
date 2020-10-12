@@ -3,10 +3,11 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.core.mail import EmailMultiAlternatives
+
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.contrib.auth.decorators import login_required
-from .models import Host, Meeting
+from .models import Host, Meeting ,guest
 from .forms import *
 import datetime
 import requests
@@ -175,8 +176,10 @@ def edit_delete(request):
 def email(subject,visitor,rec,host=None):
     ## FILL IN YOUR DETAILS HERE
     sender = 'priyanka4.p.cp@gmail.com'
-    html_content = render_to_string('visitor_mail_template.html', {'visitor':visitor,'host':host}) # render with dynamic value
-    html_content = render_to_string('host_mail_template.html', {'visitor':visitor}) # render with dynamic value
+    if host:
+           html_content = render_to_string('visitor_mail_template.html', {'visitor':visitor,'host':host}) # render with dynamic value
+    else:
+          html_content = render_to_string('host_mail_template.html', {'visitor':visitor}) # render with dynamic value
     text_content = strip_tags(html_content)
 
     # try except block to avoid wesite crashing due to email error
@@ -206,3 +209,10 @@ def sendsms(subject,visitor,host):
     except:
         pass
     return
+
+def guestlist(request):
+      meetings = guest.objects.all()
+      g = reversed(list(meetings))
+      info = {'guest':g}
+      return render(request, 'guesthistory.html',info)
+

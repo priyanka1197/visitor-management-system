@@ -26,6 +26,10 @@ urlpatterns = [
     path('manager_login/', views.managerlogin, name = 'manager_login'),
     path('dashboard/', include('accounts.urls'), name = 'doctors'),
     path('doctors/', views.doctors, name = 'doctors'),
-    path('doctors/guest/',views.guest, name='guest'),
-    path('save_guest/', views.save_guest, name='save_guest')
+    path('doctors/guest/',views.guestdetail, name='guest'),
+    path('save_guest/', views.save_guest, name='save_guest'),
+    path('checkin/', views.checkin, name='checkin'),
+    path('checkin_submit/', views.checkinsubmit, name='checkinsubmit'),
+    path('company/', views.company, name='company'),
+    path('barcodes/', views.barcode)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

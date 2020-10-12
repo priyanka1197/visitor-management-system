@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static from staticfiles %}
+{% load static %}
 {% block title %}<title>Raspi-Visitors</title>{% endblock %}
 {% block nav %} 
 <div class="form-inline my-2 my-lg-0 ml-auto">
@@ -7,8 +7,7 @@
         <h6 class="text-dark mx-3 my-auto">Hello, Admin</h6>
         <a class="btn btn-primary mx-2" href="/dashboard" role="button">Dashboard</a>
         {% else %}
-	<a class="btn btn-success mx-2" href="/manager_login" role="button">Manager Login</a>
-        <a class="btn btn-success mx-2" href="admin_login/" role="button">Admin Login</a>
+        <a class="btn btn-success mx-2" href="admin_login/" role="button">Login</a>
         {% endif %}
         
   </div>
