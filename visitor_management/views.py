@@ -12,7 +12,6 @@ from django.template.loader import get_template
 from django.template import Context
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
-import accounts.barcodes
 ## Homepage
 def home(request):
     return render(request, 'homepage.html')

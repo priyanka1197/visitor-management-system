@@ -30,14 +30,14 @@
                                             <ul class="list-group list-group-flush">
                                               <li class="list-group-item bg-danger text-light">{{ p.available }}</li>
                                             </ul>
-                                          </div>
+                                          
                                      <form action = "guest/" method="post">{% csrf_token %}
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">
                                       <button class="btn btn-primary mx-2" style="width: 90%;" type="submit" value="{{ p.id }}" name="guest" >Book your visit</button>    
                                         </li>
                                      </ul>
-                                    
+                               </div>     
                             </div>
                         </div>
                         {% endfor %}
